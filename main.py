@@ -12,6 +12,7 @@ class MusicPlayer:
         self.root.geometry("500x340")
 
         pygame.mixer.init()
+        pygame.display.init()  # Initialize the Pygame video system
 
         self.menubar = Menu(self.root)
         self.root.config(menu=self.menubar)
@@ -26,9 +27,6 @@ class MusicPlayer:
         self.create_control_buttons()
 
         pygame.mixer.music.set_endevent(pygame.USEREVENT)  # Set custom event when music ends
-
-        # Initialize the Pygame display to handle events properly
-        pygame.display.set_mode((100, 100))
 
         # Call handle_events periodically to handle custom events
         self.handle_events()
